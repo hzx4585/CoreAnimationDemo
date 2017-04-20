@@ -36,6 +36,9 @@
                             <constraint firstItem="iGw-qB-gae" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5xB-gJ-JK6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="layerView" destination="iGw-qB-gae" id="iqh-56-zOg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
