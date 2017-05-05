@@ -8,26 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController,CALayerDelegate {
+class ViewController: UIViewController {
+    
     @IBOutlet weak var layerView: UIView!
+    let blueLayer: CALayer = CALayer.init()
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        let blueLayer = CALayer.init()
-        blueLayer.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
+        blueLayer.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         blueLayer.backgroundColor = UIColor.blue.cgColor
-        blueLayer.delegate = self
-        blueLayer.contentsScale = UIScreen.main.scale
         self.layerView.layer.addSublayer(blueLayer)
-        blueLayer.display()
     }
     
-    func draw(_ layer: CALayer, in ctx: CGContext) {
-        ctx.setLineWidth(10.0)
-        ctx.setStrokeColor(UIColor.red.cgColor)
-        ctx.strokeEllipse(in: layer.bounds)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first
+        let touchPoint = location?.location(in: layerView)
+        if (self.layerView.layer.contains(touchPoint!)) {
+            if (blueLayer.contains(touchPoint!)) {
+                print("blue")
+            }
+            else {
+                print("white")
+            }
+        }
     }
 }
+
+
+
+
+
 
 
